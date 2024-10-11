@@ -1,4 +1,4 @@
-import java.util.Objects;
+package ru.yandex.practicum.javakanban.task;
 
 public class Task {
     private String name;
@@ -7,21 +7,21 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "\nTask{" +
                 "type='" + this.getClass() + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
+                ", \nname='" + name + '\'' +
+                ", \ndescription='" + description + '\'' +
+                ", \nstatus=" + status +
+                "}\n";
     }
 
     public Task() {
     }
 
-    public Task(String name, String description) {
+    public Task(String name, String description, TaskStatus taskStatus) {
         this.name = name;
         this.description = description;
-        status = TaskStatus.NEW;
+        this.status = taskStatus;
     }
 
     public String getName() {
