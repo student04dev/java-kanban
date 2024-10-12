@@ -1,6 +1,6 @@
-package ru.yandex.practicum.javakanban.core;
+package ru.yandex.practicum.kanban.core;
 
-import ru.yandex.practicum.javakanban.task.*;
+import ru.yandex.practicum.kanban.task.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

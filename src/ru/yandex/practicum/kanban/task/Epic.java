@@ -1,4 +1,4 @@
-package ru.yandex.practicum.javakanban.task;
+package ru.yandex.practicum.kanban.task;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return super.toString() + "with additional params {\nallSubtasksQuantity=" + allSubtasksQuantity +
+        return super.toString() + "with additional parameters {\nallSubtasksQuantity=" + allSubtasksQuantity +
                 ", \nnewSubtasksQuantity=" + newSubtasksQuantity +
                 ", \ninProgressSubtasksQuantity=" + inProgressSubtasksQuantity +
                 ", \nsubtasksList=" + subtasksList +

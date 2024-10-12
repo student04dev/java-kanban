@@ -1,4 +1,4 @@
-package ru.yandex.practicum.javakanban.task;
+package ru.yandex.practicum.kanban.task;
 
 public class Task {
     private String name;
