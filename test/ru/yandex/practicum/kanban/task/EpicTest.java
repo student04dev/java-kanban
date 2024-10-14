@@ -32,7 +32,7 @@ class EpicTest {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.NEW));
-        taskManager.updateSubtaskById(new Subtask(2, "Subtask 1 name", "subtask 1 text",
+        taskManager.updateSubtask(new Subtask(2, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.IN_PROGRESS));
         assertEquals(taskManager.getEpicById(1).getStatus(), TaskStatus.IN_PROGRESS);
     }

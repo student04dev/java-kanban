@@ -141,7 +141,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void updateTaskById(Task inputTask) {
+    public void updateTask(Task inputTask) {
         int taskId = inputTask.getId();
         if (isIdBelongsToTasks(taskId)) {
             tasksMap.put(taskId, inputTask);
@@ -149,7 +149,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void updateEpicById(Epic inputEpic) {
+    public void updateEpic(Epic inputEpic) {
         int epicId = inputEpic.getId();
         if (isIdBelongsToEpics(epicId)) {
             epicsMap.put(epicId, inputEpic);
@@ -157,7 +157,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void updateSubtaskById(Subtask inputSubtask) {
+    public void updateSubtask(Subtask inputSubtask) {
         int subtaskId = inputSubtask.getId();
         if (isIdBelongsToSubtasks(subtaskId)) {
             subtasksMap.put(subtaskId, inputSubtask);
