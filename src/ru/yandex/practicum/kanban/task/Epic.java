@@ -7,7 +7,7 @@ public class Epic extends Task {
     private int allSubtasksQuantity;
     private int newSubtasksQuantity;
     private int inProgressSubtasksQuantity;
-    ArrayList<Integer> subtasksList = new ArrayList<>();
+    private final ArrayList<Integer> subtasksList;
 
     @Override
     public String toString() {
@@ -18,12 +18,21 @@ public class Epic extends Task {
                 "}\n";
     }
 
-    public Epic(String name, String description, TaskStatus taskStatus) {
-        super(name, description, taskStatus);
+    public Epic(int id, String name, String description, TaskStatus taskStatus) {
+        super(id, name, description, taskStatus);
+        this.subtasksList = new ArrayList<>();
     }
 
     public void addSubtaskToList(int subtaskId) {
         subtasksList.add(subtaskId);
+    }
+
+    public ArrayList<Integer> getSubtasksList() {
+        return subtasksList;
+    }
+
+    public void removeSubtaskFromList(int subtaskId) {
+        subtasksList.remove((Integer) subtaskId);
     }
 
     public void clearStats() {
@@ -32,10 +41,10 @@ public class Epic extends Task {
         this.inProgressSubtasksQuantity = 0;
     }
 
-    public void calculateEpicStatus(int epicId, HashMap<Integer, Subtask> subtasksMap) {
+    public void calculateEpicStatus(HashMap<Integer, Subtask> subtasksMap) {
         this.clearStats();
         for (Subtask subtaskId : subtasksMap.values()) {
-            if (subtaskId.getParentEpicId() == epicId) {
+            if (subtaskId.getParentEpicId() == this.getId()) {
                 this.allSubtasksQuantity++;
                 switch (subtaskId.getStatus()) {
                     case TaskStatus.NEW:

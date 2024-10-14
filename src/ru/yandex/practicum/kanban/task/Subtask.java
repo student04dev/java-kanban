@@ -8,8 +8,8 @@ public class Subtask extends Task {
         return super.toString() + "with additional parameters {\nparentEpicId=" + parentEpicId + "}\n";
     }
 
-    public Subtask(String name, String description, int parentEpicId, TaskStatus taskStatus) {
-        super(name, description, taskStatus);
+    public Subtask(int id, String name, String description, int parentEpicId, TaskStatus taskStatus) {
+        super(id, name, description, taskStatus);
         this.parentEpicId = parentEpicId;
     }
 

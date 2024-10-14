@@ -3,108 +3,54 @@ package ru.yandex.practicum.kanban.core;
 import ru.yandex.practicum.kanban.task.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class TaskManager {
-    private static int id = 1;
-    HashMap<Integer, Task> tasksMap = new HashMap<>();
-    HashMap<Integer, Epic> epicsMap = new HashMap<>();
-    HashMap<Integer, Subtask> subtasksMap = new HashMap<>();
+public interface TaskManager {
 
-    public TaskManager() {
-    }
+    void createTask(Task inputTask);
 
-    public ArrayList<Task> getTasksMap() {
-        return new ArrayList<>(tasksMap.values());
-    }
+    void createEpic(Epic inputTask);
 
-    public ArrayList<Epic> getEpicsMap() {
-        return new ArrayList<>(epicsMap.values());
-    }
+    void createSubtask(Subtask inputTask);
 
-    public ArrayList<Subtask> getSubtasksMap() {
-        return new ArrayList<>(subtasksMap.values());
-    }
+    Task getTaskById(int id);
 
-    public static int getAndIncreaseId() {
-        return id++;
-    }
+    Epic getEpicById(int id);
 
-    public Task getTaskById(int id) {
-        return tasksMap.get(id);
-    }
+    Subtask getSubtaskById(int id);
 
-    public Epic getEpicById(int id) {
-        return epicsMap.get(id);
-    }
+    ArrayList<Subtask> getAllSubtasksByEpicId(int id);
 
-    public Subtask getSubTaskById(int id) {
-        return subtasksMap.get(id);
-    }
+    ArrayList<Task> getTasksMap();
 
-    public ArrayList<Subtask> getSubtasksByEpicId(int id) {
-        ArrayList<Subtask> subtasksByEpicId = new ArrayList<>();
-        for (Subtask subtask : subtasksMap.values()) {
-            if (subtask.getParentEpicId() == id) {
-                subtasksByEpicId.add(subtask);
-            }
-        }
-        return subtasksByEpicId;
-    }
+    ArrayList<Epic> getEpicsMap();
 
-    public void clearTasksList() {
-        tasksMap.clear();
-    }
+    ArrayList<Subtask> getSubtasksMap();
 
-    public void clearEpicsList() {
-        epicsMap.clear();
-    }
+    void clearTasksMap();
 
-    public void clearSubtasksList() {
-        subtasksMap.clear();
-    }
+    void clearEpicsMap();
 
-    public void deleteTaskById(int id) {
-        tasksMap.remove(id);
-    }
+    void clearSubtasksMap();
 
-    public void deleteEpicById(int id) {
-        epicsMap.remove(id);
-    }
+    void removeTaskById(int id);
 
-    public void deleteSubtaskById(int id) {
-        int parentEpicId = subtasksMap.get(id).getParentEpicId();
-        subtasksMap.remove(id);
-        epicsMap.get(parentEpicId).calculateEpicStatus(parentEpicId, subtasksMap);
-    }
+    void removeEpicById(int id);
 
-    public void createTask(Task inputTask) {
-        tasksMap.put(getAndIncreaseId(), inputTask);
-    }
+    void removeSubtaskById(int id);
 
-    public void createEpic(Epic inputTask) {
-        epicsMap.put(getAndIncreaseId(), inputTask);
-    }
+    void updateTaskById(int id, Task inputTask);
 
-    public void createSubtask(Subtask inputTask) {
-        int parentEpicId = inputTask.getParentEpicId();
-        int subtaskId = getAndIncreaseId();
-        subtasksMap.put(subtaskId, inputTask);
-        epicsMap.get(parentEpicId).addSubtaskToList(subtaskId);
-        epicsMap.get(parentEpicId).calculateEpicStatus(inputTask.getParentEpicId(), subtasksMap);
-    }
+    void updateEpicById(int id, Epic inputTask);
 
-    public void updateTaskById(int id, Task inputTask) {
-        tasksMap.put(id, inputTask);
-    }
+    void updateSubtaskById(int id, Subtask inputTask);
 
-    public void updateEpicById(int id, Epic inputTask) {
-        epicsMap.put(id, inputTask);
-    }
+    ArrayList<Task> getHistory();
 
-    public void updateSubtaskById(int id, Subtask inputTask) {
-        subtasksMap.put(id, inputTask);
-        int parentEpicId = inputTask.getParentEpicId();
-        epicsMap.get(parentEpicId).calculateEpicStatus(inputTask.getParentEpicId(), subtasksMap);
-    }
+    boolean isIdBelongsToTasks(int id);
+
+    boolean isIdBelongsToEpics(int id);
+
+    boolean isIdBelongsToSubtasks(int id);
+
+    boolean isFreeId(int taskId);
 }
