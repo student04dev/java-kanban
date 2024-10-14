@@ -19,7 +19,7 @@ public class Main {
         taskManager.createSubtask(new Subtask(0, "Subtask 3 name", "subtask 3 text",
                 4, TaskStatus.NEW)); // id=7
 
-        taskManager.updateSubtaskById(6, new Subtask(6, "Subtask 2 name", "subtask 2 text",
+        taskManager.updateSubtaskById(new Subtask(6, "Subtask 2 name", "subtask 2 text",
                 4, TaskStatus.IN_PROGRESS));
         System.out.println("\nСтатус эпика id=4 должен быть IN_PROGRESS после перевода подзадачи в IN_PROGRESS:");
         System.out.println(taskManager.getEpicById(4));

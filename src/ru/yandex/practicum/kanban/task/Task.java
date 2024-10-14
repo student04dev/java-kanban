@@ -11,7 +11,8 @@ public class Task {
     @Override
     public String toString() {
         return "\nTask{" +
-                "type='" + this.getClass() + '\'' +
+                "id='" + this.id + '\'' +
+                "\ntype='" + this.getClass() + '\'' +
                 ", \nname='" + name + '\'' +
                 ", \ndescription='" + description + '\'' +
                 ", \nstatus=" + status +

@@ -140,26 +140,28 @@ public class InMemoryTaskManager implements TaskManager {
         epicsMap.get(parentEpicId).calculateEpicStatus(subtasksMap);
     }
 
-
     @Override
-    public void updateTaskById(int id, Task inputTask) {
-        if (isIdBelongsToTasks(id)) {
-            tasksMap.put(id, inputTask);
+    public void updateTaskById(Task inputTask) {
+        int taskId = inputTask.getId();
+        if (isIdBelongsToTasks(taskId)) {
+            tasksMap.put(taskId, inputTask);
         }
     }
 
     @Override
-    public void updateEpicById(int id, Epic inputTask) {
-        if (isIdBelongsToEpics(id)) {
-            epicsMap.put(id, inputTask);
+    public void updateEpicById(Epic inputEpic) {
+        int epicId = inputEpic.getId();
+        if (isIdBelongsToEpics(epicId)) {
+            epicsMap.put(epicId, inputEpic);
         }
     }
 
     @Override
-    public void updateSubtaskById(int id, Subtask inputTask) {
-        if (isIdBelongsToSubtasks(id)) {
-            subtasksMap.put(id, inputTask);
-            int parentEpicId = inputTask.getParentEpicId();
+    public void updateSubtaskById(Subtask inputSubtask) {
+        int subtaskId = inputSubtask.getId();
+        if (isIdBelongsToSubtasks(subtaskId)) {
+            subtasksMap.put(subtaskId, inputSubtask);
+            int parentEpicId = inputSubtask.getParentEpicId();
             epicsMap.get(parentEpicId).calculateEpicStatus(subtasksMap);
         }
     }

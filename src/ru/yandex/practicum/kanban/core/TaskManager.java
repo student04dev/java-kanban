@@ -38,11 +38,11 @@ public interface TaskManager {
 
     void removeSubtaskById(int id);
 
-    void updateTaskById(int id, Task inputTask);
+    void updateTaskById(Task inputTask);
 
-    void updateEpicById(int id, Epic inputTask);
+    void updateEpicById(Epic inputTask);
 
-    void updateSubtaskById(int id, Subtask inputTask);
+    void updateSubtaskById(Subtask inputTask);
 
     ArrayList<Task> getHistory();
 
