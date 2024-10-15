@@ -18,26 +18,26 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    void EnsureAutoincrementSetsIdsOneByOne() {
+    void ensureAutoincrementSetsIdsOneByOne() {
         taskManager.createTask(new Task(0, "Task 1 name", "task 1 text", TaskStatus.NEW));
         taskManager.createTask(new Task(0, "Task 2 name", "task 2 text", TaskStatus.NEW));
         assertEquals(taskManager.getTaskById(1).getId(), taskManager.getTaskById(2).getId() - 1);
     }
 
     @Test
-    void TaskCreatedShouldBeAccessibleById() {
+    void taskCreatedShouldBeAccessibleById() {
         taskManager.createTask(new Task(0, "Task 1 name", "task 1 text", TaskStatus.NEW));
         assertNotNull(taskManager.getTaskById(1));
     }
 
     @Test
-    void EpicCreatedShouldBeAccessibleById() {
+    void epicCreatedShouldBeAccessibleById() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         assertNotNull(taskManager.getEpicById(1));
     }
 
     @Test
-    void SubtaskCreatedShouldBeAccessibleById() {
+    void subtaskCreatedShouldBeAccessibleById() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.NEW));
@@ -45,7 +45,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    void TaskCreatedShouldBeSameAsInitialOne() {
+    void taskCreatedShouldBeTheSameAsInitialOne() {
         taskManager.createTask(new Task(0, "Task 1 name", "task 1 text", TaskStatus.NEW));
         assertEquals("Task 1 name", taskManager.getTaskById(1).getName());
         assertEquals("task 1 text", taskManager.getTaskById(1).getDescription());
@@ -53,7 +53,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    void EpicCreatedShouldBeSameAsInitialOne() {
+    void epicCreatedShouldBeTheSameAsInitialOne() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         assertEquals("Epic 1 name", taskManager.getEpicById(1).getName());
         assertEquals("epic 1 text", taskManager.getEpicById(1).getDescription());
@@ -61,7 +61,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    void SubtaskCreatedShouldBeSameAsInitialOne() {
+    void subtaskCreatedShouldBeTheSameAsInitialOne() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.NEW));

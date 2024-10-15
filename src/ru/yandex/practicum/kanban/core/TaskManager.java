@@ -46,11 +46,4 @@ public interface TaskManager {
 
     ArrayList<Task> getHistory();
 
-    boolean isIdBelongsToTasks(int id);
-
-    boolean isIdBelongsToEpics(int id);
-
-    boolean isIdBelongsToSubtasks(int id);
-
-    boolean isFreeId(int taskId);
 }

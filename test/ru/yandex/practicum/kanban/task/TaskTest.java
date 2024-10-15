@@ -10,37 +10,37 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TaskTest {
     @Test
-    void TasksWithSameIdShouldBeEqual() {
+    void tasksWithSameIdShouldBeEqual() {
         Task task = new Task(1, "Name", "Description", TaskStatus.NEW);
         assertEquals(task, new Task(1, "abc", "def", TaskStatus.IN_PROGRESS));
     }
 
     @Test
-    void TasksWithNotSameIdShouldNotBeEqual() {
+    void tasksWithNotSameIdShouldNotBeEqual() {
         Task task = new Task(1, "Name", "Description", TaskStatus.NEW);
         assertNotEquals(task, new Task(2, "Name", "Description", TaskStatus.NEW));
     }
 
     @Test
-    void EpicsWithSameIdShouldBeEqual() {
+    void epicsWithSameIdShouldBeEqual() {
         Epic epic = new Epic(1, "Name", "Description", TaskStatus.NEW);
         assertEquals(epic, new Epic(1, "abc", "def", TaskStatus.IN_PROGRESS));
     }
 
     @Test
-    void EpicsWithNotSameIdShouldNotBeEqual() {
+    void epicsWithNotSameIdShouldNotBeEqual() {
         Epic epic = new Epic(1, "Name", "Description", TaskStatus.NEW);
         assertNotEquals(epic, new Epic(2, "Name", "Description", TaskStatus.NEW));
     }
 
     @Test
-    void SubtasksWithSameIdShouldBeEqual() {
+    void subtasksWithSameIdShouldBeEqual() {
         Subtask subtask = new Subtask(1, "Name", "Description", 1, TaskStatus.NEW);
         assertEquals(subtask, new Subtask(1, "abc", "def", 2, TaskStatus.IN_PROGRESS));
     }
 
     @Test
-    void SubtasksWithNotSameIdShouldNotBeEqual() {
+    void subtasksWithNotSameIdShouldNotBeEqual() {
         Subtask subtask = new Subtask(1, "Name", "Description", 1, TaskStatus.NEW);
         assertNotEquals(subtask, new Subtask(2, "Name", "Description", 1, TaskStatus.NEW));
     }

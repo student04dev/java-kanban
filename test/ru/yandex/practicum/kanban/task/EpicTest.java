@@ -18,7 +18,7 @@ class EpicTest {
     }
 
     @Test
-    void EnsureEpicSubtasksListContainsAllSubtasks() {
+    void ensureEpicSubtasksListContainsAllSubtasks() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.NEW));
@@ -28,7 +28,7 @@ class EpicTest {
     }
 
     @Test
-    void EnsureEpicGetsInProgressWhenSubtaskGetsInProgress() {
+    void ensureEpicGetsInProgressWhenSubtaskGetsInProgress() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.NEW));
@@ -38,7 +38,7 @@ class EpicTest {
     }
 
     @Test
-    void EnsureEpicGetsNewWhenRemoveLastSubtaskInProgress() {
+    void ensureEpicGetsNewWhenRemoveLastSubtaskInProgress() {
         taskManager.createEpic(new Epic(0, "Epic 1 name", "epic 1 text", TaskStatus.NEW));
         taskManager.createSubtask(new Subtask(0, "Subtask 1 name", "subtask 1 text",
                 1, TaskStatus.IN_PROGRESS));

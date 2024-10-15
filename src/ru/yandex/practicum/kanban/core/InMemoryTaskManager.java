@@ -171,22 +171,19 @@ public class InMemoryTaskManager implements TaskManager {
         return historyManager.getHistory();
     }
 
-    @Override
-    public boolean isIdBelongsToTasks(int id) {
+    private boolean isIdBelongsToTasks(int id) {
         return tasksMap.containsKey(id);
     }
 
-    @Override
-    public boolean isIdBelongsToEpics(int id) {
+    private boolean isIdBelongsToEpics(int id) {
         return epicsMap.containsKey(id);
     }
 
-    @Override
-    public boolean isIdBelongsToSubtasks(int id) {
+    private boolean isIdBelongsToSubtasks(int id) {
         return subtasksMap.containsKey(id);
     }
 
-    public boolean isFreeId(int taskId) {
+    private boolean isFreeId(int taskId) {
         return !(isIdBelongsToTasks(taskId) && isIdBelongsToEpics(taskId) && isIdBelongsToSubtasks(taskId));
     }
 

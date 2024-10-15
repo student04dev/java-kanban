@@ -35,7 +35,7 @@ public class Epic extends Task {
         subtasksList.remove((Integer) subtaskId);
     }
 
-    public void clearStats() {
+    private void clearStats() {
         this.allSubtasksQuantity = 0;
         this.newSubtasksQuantity = 0;
         this.inProgressSubtasksQuantity = 0;

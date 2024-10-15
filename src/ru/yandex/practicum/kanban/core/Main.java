@@ -25,7 +25,8 @@ public class Main {
         System.out.println(taskManager.getEpicById(4));
 
         taskManager.removeSubtaskById(6);
-        System.out.println("\nСтатус эпика id=4 должен быть NEW после удаления последней подзадачи в IN_PROGRESS:");
+        System.out.println("\nСтатус эпика id=4 должен быть NEW " +
+                "после удаления последней оставшейся подзадачи в IN_PROGRESS:");
         System.out.println(taskManager.getEpicById(4));
 
         taskManager.getTaskById(1);
